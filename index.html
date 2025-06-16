@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Hacks - Premium BGMI/PUBG Solutions</title>
+    <title>KAAL-MOD STORE - Premium BGMI/PUBG Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -406,7 +406,180 @@
             color: rgba(255, 255, 255, 0.5);
             font-size: 0.9rem;
         }
-        
+
+        /* Payment Section Styles */
+        .payment-section {
+            padding: 40px 0;
+            background: rgba(44, 44, 84, 0.5);
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .payment-method {
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            width: 280px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .payment-method:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .payment-method img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .payment-method h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .payment-method p {
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .upi-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #5f9ea0;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .upi-btn:hover {
+            background: #4d7e80;
+        }
+
+        /* Live Chat Styles */
+        .chat-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(108, 92, 231, 0.5);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .chat-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-box {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            background: rgba(26, 26, 46, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            overflow: hidden;
+            display: none;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chat-header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .chat-body {
+            padding: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            background: rgba(44, 44, 84, 0.5);
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px 0 0 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .chat-input button {
+            padding: 10px 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input button:hover {
+            background: var(--secondary);
+        }
+
+        .patience-message {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 10px;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -424,6 +597,11 @@
             .hero p {
                 font-size: 1rem;
             }
+
+            .chat-box {
+                width: 90%;
+                right: 5%;
+            }
         }
     </style>
 </head>
@@ -432,13 +610,13 @@
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
-                    <img src="https://i.ibb.co/JFMqhJsw/IMG-20250615-154619-655.jpg" alt="Elite Hacks Logo" class="logo-img">
-                    <span class="logo-text">Elite Hacks</span>
+                    <img src="https://i.ibb.co/JFMqhJsw/IMG-20250615-154619-655.jpg" alt="KAAL-MOD STORE Logo" class="logo-img">
+                    <span class="logo-text">KAAL-MOD STORE</span>
                 </div>
                 <div class="nav-links">
                     <a href="#products">Products</a>
                     <a href="#downloads">Downloads</a>
-                    <a href="#about">About</a>
+                    <a href="#payment">Payment</a>
                     <a href="#contact">Contact</a>
                 </div>
             </nav>
@@ -448,8 +626,8 @@
     <section class="hero">
         <div class="container">
             <div class="status-container">
-                <div class="status-dot online" id="statusDot"></div>
-                <span id="statusText">All systems operational</span>
+                <div class="status-dot online"></div>
+                <span>All systems operational</span>
             </div>
             <h1>Premium BGMI/PUBG Mobile Hacks</h1>
             <p>Undetected, feature-rich solutions to dominate your gameplay. Regular updates and 24/7 support.</p>
@@ -465,7 +643,7 @@
                 <div class="product-card">
                     <div class="product-header">
                         <h3 class="product-title">Bypass Package</h3>
-                        <div class="product-price">$15 <span>/month</span></div>
+                        <div class="product-price">₹499 <span>/month</span></div>
                     </div>
                     <div class="product-body">
                         <ul class="product-features">
@@ -484,7 +662,7 @@
                 <div class="product-card">
                     <div class="product-header">
                         <h3 class="product-title">SRC Package</h3>
-                        <div class="product-price">$25 <span>/month</span></div>
+                        <div class="product-price">₹999 <span>/month</span></div>
                     </div>
                     <div class="product-body">
                         <ul class="product-features">
@@ -503,7 +681,7 @@
                 <div class="product-card">
                     <div class="product-header">
                         <h3 class="product-title">KillSign Fix</h3>
-                        <div class="product-price">$10 <span>/one-time</span></div>
+                        <div class="product-price">₹299 <span>/one-time</span></div>
                     </div>
                     <div class="product-body">
                         <ul class="product-features">
@@ -517,6 +695,32 @@
                     <div class="product-footer">
                         <a href="https://t.me/KAALDINO" class="btn" target="_blank">Purchase Now</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="payment-section" id="payment">
+        <div class="container">
+            <h2 class="section-title">Payment Methods</h2>
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <img src="https://i.ibb.co/Mk61VZ15/Navi-QR-AMAN-16062025221135723.png" alt="UPI QR Code">
+                    <h3>UPI Payment</h3>
+                    <p>Scan the QR code or use UPI ID below</p>
+                    <p><strong>UPI ID:</strong> aman5978@naviaxis</p>
+                    <div>
+                        <a href="upi://pay?pa=aman5978@naviaxis&pn=KAAL-MOD&cu=INR" class="upi-btn">Pay via UPI</a>
+                        <a href="https://tez.google.com" class="upi-btn">Google Pay</a>
+                        <a href="https://paytm.com" class="upi-btn">Paytm</a>
+                        <a href="https://phonepe.com" class="upi-btn">PhonePe</a>
+                    </div>
+                </div>
+                <div class="payment-method">
+                    <i class="fas fa-comments-dollar" style="font-size: 50px; color: var(--primary); margin: 15px 0;"></i>
+                    <h3>Telegram Payment</h3>
+                    <p>Contact us directly on Telegram for alternative payment methods</p>
+                    <a href="https://t.me/KAALDINO" class="btn" target="_blank">Contact on Telegram</a>
                 </div>
             </div>
         </div>
@@ -548,9 +752,9 @@
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section" id="about">
+                <div class="footer-section">
                     <h3>About Us</h3>
-                    <p>Elite Hacks provides premium quality game enhancements for BGMI and PUBG Mobile players worldwide.</p>
+                    <p>KAAL-MOD STORE provides premium quality game enhancements for BGMI and PUBG Mobile players worldwide.</p>
                     <p>Our solutions are tested and updated regularly to ensure maximum performance and security.</p>
                 </div>
                 <div class="footer-section">
@@ -558,7 +762,7 @@
                     <ul class="footer-links">
                         <li><a href="#products">Products</a></li>
                         <li><a href="#downloads">Downloads</a></li>
-                        <li><a href="#about">About</a></li>
+                        <li><a href="#payment">Payment</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li><a href="https://t.me/KAALMODOFFICIAL" target="_blank">Channel</a></li>
                         <li><a href="https://t.me/KAALDINO" target="_blank">Support</a></li>
@@ -566,7 +770,7 @@
                 </div>
                 <div class="footer-section">
                     <h3>Contact Us</h3>
-                    <p><i class="fas fa-envelope"></i> support@elitehacks.example</p>
+                    <p><i class="fas fa-envelope"></i> support@kaalmod.example</p>
                     <p><i class="fab fa-telegram"></i> Telegram: @KAALDINO</p>
                     <div class="social-links">
                         <a href="https://t.me/KAALDINO" target="_blank"><i class="fab fa-telegram"></i></a>
@@ -575,16 +779,119 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Elite Hacks. All rights reserved. BGMI and PUBG Mobile are registered trademarks of their respective owners.</p>
+                <p>&copy; 2023 KAAL-MOD STORE. All rights reserved. BGMI and PUBG Mobile are registered trademarks of their respective owners.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Live Chat Button -->
+    <div class="chat-btn" id="chatBtn">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <!-- Live Chat Box -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <h3>Live Support</h3>
+            <button class="close-chat" id="closeChat">&times;</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-message">
+                Welcome to KAAL-MOD STORE support! Please enter your Telegram username and message below.
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="usernameInput" placeholder="Your Telegram username">
+            <input type="text" id="messageInput" placeholder="Your message">
+            <button id="sendMessage">Send</button>
+        </div>
+        <div class="patience-message">
+            Please be patient, our team will respond to you shortly on Telegram.
+        </div>
+    </div>
+
     <script>
-        // Simple script to handle dynamic elements
-        document.addEventListener('DOMContentLoaded', function() {
-            // You can add dynamic functionality here if needed
-            console.log('Website loaded successfully');
+        // Telegram Bot Configuration
+        const botToken = '7879797116:AAEa0mRSJqmwx53uio848KrIU9yEilLbIn8';
+        const chatId = '6690653192';
+
+        // Chat functionality
+        const chatBtn = document.getElementById('chatBtn');
+        const chatBox = document.getElementById('chatBox');
+        const closeChat = document.getElementById('closeChat');
+        const sendMessage = document.getElementById('sendMessage');
+        const usernameInput = document.getElementById('usernameInput');
+        const messageInput = document.getElementById('messageInput');
+        const chatBody = document.getElementById('chatBody');
+
+        // Toggle chat box
+        chatBtn.addEventListener('click', () => {
+            chatBox.style.display = chatBox.style.display === 'block' ? 'none' : 'block';
+        });
+
+        closeChat.addEventListener('click', () => {
+            chatBox.style.display = 'none';
+        });
+
+        // Send message to Telegram bot
+        sendMessage.addEventListener('click', () => {
+            const username = usernameInput.value.trim();
+            const message = messageInput.value.trim();
+
+            if (!username || !message) {
+                alert('Please enter both your Telegram username and message');
+                return;
+            }
+
+            const fullMessage = `New message from KAAL-MOD STORE website:\n\nUsername: @${username}\nMessage: ${message}`;
+
+            // Add user message to chat
+            const userMessage = document.createElement('div');
+            userMessage.className = 'chat-message';
+            userMessage.textContent = `You: ${message}`;
+            chatBody.appendChild(userMessage);
+
+            // Clear inputs
+            usernameInput.value = '';
+            messageInput.value = '';
+
+            // Scroll to bottom
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            // Send to Telegram bot
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: fullMessage
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const botResponse = document.createElement('div');
+                botResponse.className = 'chat-message';
+                botResponse.textContent = 'Support: Thank you for your message. We will contact you shortly on Telegram.';
+                chatBody.appendChild(botResponse);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            })
+            .catch(error => {
+                console.error('Error sending message:', error);
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'chat-message';
+                errorMessage.textContent = 'Support: Could not send message. Please contact us directly on Telegram.';
+                chatBody.appendChild(errorMessage);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            });
+        });
+
+        // Allow sending message with Enter key
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage.click();
+            }
         });
     </script>
 </body>
