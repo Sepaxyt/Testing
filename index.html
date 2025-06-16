@@ -407,68 +407,6 @@
             font-size: 0.9rem;
         }
 
-        /* Payment Section Styles */
-        .payment-section {
-            padding: 40px 0;
-            background: rgba(44, 44, 84, 0.5);
-            border-radius: 15px;
-            margin: 40px 0;
-        }
-
-        .payment-methods {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .payment-method {
-            background: rgba(26, 26, 46, 0.8);
-            border-radius: 10px;
-            padding: 20px;
-            width: 280px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .payment-method:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-
-        .payment-method img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-
-        .payment-method h3 {
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .payment-method p {
-            margin-bottom: 15px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .upi-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #5f9ea0;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            margin: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .upi-btn:hover {
-            background: #4d7e80;
-        }
-
         /* Live Chat Styles */
         .chat-btn {
             position: fixed;
@@ -544,32 +482,43 @@
             font-size: 0.9rem;
         }
 
-        .chat-input {
-            display: flex;
+        .chat-input-area {
             padding: 15px;
             background: rgba(44, 44, 84, 0.5);
         }
 
-        .chat-input input {
-            flex: 1;
+        .chat-input-group {
+            margin-bottom: 10px;
+        }
+
+        .chat-input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .chat-input-group input {
+            width: 100%;
             padding: 10px;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 5px 0 0 5px;
+            border-radius: 5px;
             background: rgba(255, 255, 255, 0.1);
             color: white;
         }
 
-        .chat-input button {
-            padding: 10px 15px;
+        .send-btn {
+            width: 100%;
+            padding: 10px;
             background: var(--primary);
             color: white;
             border: none;
-            border-radius: 0 5px 5px 0;
+            border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .chat-input button:hover {
+        .send-btn:hover {
             background: var(--secondary);
         }
 
@@ -616,7 +565,7 @@
                 <div class="nav-links">
                     <a href="#products">Products</a>
                     <a href="#downloads">Downloads</a>
-                    <a href="#payment">Payment</a>
+                    <a href="payment.html">Payment</a>
                     <a href="#contact">Contact</a>
                 </div>
             </nav>
@@ -700,32 +649,6 @@
         </div>
     </section>
 
-    <section class="payment-section" id="payment">
-        <div class="container">
-            <h2 class="section-title">Payment Methods</h2>
-            <div class="payment-methods">
-                <div class="payment-method">
-                    <img src="https://i.ibb.co/Mk61VZ15/Navi-QR-AMAN-16062025221135723.png" alt="UPI QR Code">
-                    <h3>UPI Payment</h3>
-                    <p>Scan the QR code or use UPI ID below</p>
-                    <p><strong>UPI ID:</strong> aman5978@naviaxis</p>
-                    <div>
-                        <a href="upi://pay?pa=aman5978@naviaxis&pn=KAAL-MOD&cu=INR" class="upi-btn">Pay via UPI</a>
-                        <a href="https://tez.google.com" class="upi-btn">Google Pay</a>
-                        <a href="https://paytm.com" class="upi-btn">Paytm</a>
-                        <a href="https://phonepe.com" class="upi-btn">PhonePe</a>
-                    </div>
-                </div>
-                <div class="payment-method">
-                    <i class="fas fa-comments-dollar" style="font-size: 50px; color: var(--primary); margin: 15px 0;"></i>
-                    <h3>Telegram Payment</h3>
-                    <p>Contact us directly on Telegram for alternative payment methods</p>
-                    <a href="https://t.me/KAALDINO" class="btn" target="_blank">Contact on Telegram</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="downloads" id="downloads">
         <div class="container">
             <h2 class="section-title">Free Downloads</h2>
@@ -762,7 +685,7 @@
                     <ul class="footer-links">
                         <li><a href="#products">Products</a></li>
                         <li><a href="#downloads">Downloads</a></li>
-                        <li><a href="#payment">Payment</a></li>
+                        <li><a href="payment.html">Payment</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li><a href="https://t.me/KAALMODOFFICIAL" target="_blank">Channel</a></li>
                         <li><a href="https://t.me/KAALDINO" target="_blank">Support</a></li>
@@ -800,13 +723,19 @@
                 Welcome to KAAL-MOD STORE support! Please enter your Telegram username and message below.
             </div>
         </div>
-        <div class="chat-input">
-            <input type="text" id="usernameInput" placeholder="Your Telegram username">
-            <input type="text" id="messageInput" placeholder="Your message">
-            <button id="sendMessage">Send</button>
-        </div>
-        <div class="patience-message">
-            Please be patient, our team will respond to you shortly on Telegram.
+        <div class="chat-input-area">
+            <div class="chat-input-group">
+                <label for="usernameInput">Telegram Username</label>
+                <input type="text" id="usernameInput" placeholder="@username">
+            </div>
+            <div class="chat-input-group">
+                <label for="messageInput">Your Message</label>
+                <input type="text" id="messageInput" placeholder="Type your message here">
+            </div>
+            <button class="send-btn" id="sendMessage">Send Message</button>
+            <p class="patience-message">
+                Please be patient, our team will respond to you shortly on Telegram.
+            </p>
         </div>
     </div>
 
@@ -834,16 +763,26 @@
         });
 
         // Send message to Telegram bot
-        sendMessage.addEventListener('click', () => {
+        sendMessage.addEventListener('click', sendMessageToTelegram);
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessageToTelegram();
+            }
+        });
+
+        function sendMessageToTelegram() {
             const username = usernameInput.value.trim();
             const message = messageInput.value.trim();
 
-            if (!username || !message) {
-                alert('Please enter both your Telegram username and message');
+            if (!username) {
+                alert('Please enter your Telegram username');
                 return;
             }
 
-            const fullMessage = `New message from KAAL-MOD STORE website:\n\nUsername: @${username}\nMessage: ${message}`;
+            if (!message) {
+                alert('Please enter your message');
+                return;
+            }
 
             // Add user message to chat
             const userMessage = document.createElement('div');
@@ -851,14 +790,15 @@
             userMessage.textContent = `You: ${message}`;
             chatBody.appendChild(userMessage);
 
-            // Clear inputs
-            usernameInput.value = '';
+            // Clear message input
             messageInput.value = '';
 
             // Scroll to bottom
             chatBody.scrollTop = chatBody.scrollHeight;
 
             // Send to Telegram bot
+            const fullMessage = `New message from KAAL-MOD STORE website:\n\nUsername: ${username}\nMessage: ${message}`;
+            
             fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                 method: 'POST',
                 headers: {
@@ -881,18 +821,11 @@
                 console.error('Error sending message:', error);
                 const errorMessage = document.createElement('div');
                 errorMessage.className = 'chat-message';
-                errorMessage.textContent = 'Support: Could not send message. Please contact us directly on Telegram.';
+                errorMessage.textContent = 'Support: Could not send message. Please contact us directly on Telegram @KAALDINO';
                 chatBody.appendChild(errorMessage);
                 chatBody.scrollTop = chatBody.scrollHeight;
             });
-        });
-
-        // Allow sending message with Enter key
-        messageInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage.click();
-            }
-        });
+        }
     </script>
 </body>
 </html>
