@@ -95,6 +95,7 @@
             color: var(--light);
             font-size: 1.5rem;
             cursor: pointer;
+            z-index: 1001;
         }
         
         body.light-mode .menu-toggle {
@@ -140,7 +141,7 @@
         .mobile-menu {
             display: none;
             position: fixed;
-            top: 80px;
+            top: 70px;
             left: 0;
             width: 100%;
             background: rgba(26, 26, 46, 0.95);
@@ -176,70 +177,6 @@
         
         body.light-mode .theme-toggle {
             color: var(--dark);
-        }
-        
-        /* 3-dot dropdown menu styles */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .dropdown-btn {
-            background: none;
-            border: none;
-            color: var(--light);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 5px 10px;
-        }
-        
-        body.light-mode .dropdown-btn {
-            color: var(--dark);
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            right: 0;
-            background-color: rgba(26, 26, 46, 0.95);
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            z-index: 1;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-        
-        body.light-mode .dropdown-content {
-            background-color: rgba(245, 246, 250, 0.95);
-            border: 1px solid rgba(45, 52, 54, 0.1);
-        }
-        
-        .dropdown-content a {
-            color: var(--light);
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        body.light-mode .dropdown-content a {
-            color: var(--dark);
-            border-bottom: 1px solid rgba(45, 52, 54, 0.05);
-        }
-        
-        .dropdown-content a:last-child {
-            border-bottom: none;
-        }
-        
-        .dropdown-content a:hover {
-            background-color: rgba(108, 92, 231, 0.2);
-        }
-        
-        .dropdown.show .dropdown-content {
-            display: block;
         }
         
         .hero {
@@ -730,11 +667,6 @@
         }
 
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
             .nav-links {
                 display: none;
             }
@@ -772,23 +704,12 @@
                     <a href="payment.html">Payment</a>
                     <a href="contact.html">Contact</a>
                 </div>
-                <div class="header-controls">
-                    <button class="theme-toggle" id="themeToggle">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                    <div class="dropdown" id="dropdownMenu">
-                        <button class="dropdown-btn">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="#"><i class="fas fa-user"></i> Profile</a>
-                            <a href="#"><i class="fas fa-cog"></i> Settings</a>
-                            <a href="#"><i class="fas fa-question-circle"></i> Help</a>
-                            <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                        </div>
-                    </div>
+                <div class="nav-right">
                     <button class="menu-toggle" id="menuToggle">
                         <i class="fas fa-bars"></i>
+                    </button>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
                     </button>
                 </div>
             </nav>
@@ -954,8 +875,6 @@
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         const themeToggle = document.getElementById('themeToggle');
-        const dropdownMenu = document.getElementById('dropdownMenu');
-        const dropdownBtn = dropdownMenu.querySelector('.dropdown-btn');
         const chatBtn = document.getElementById('chatBtn');
         const chatBox = document.getElementById('chatBox');
         const closeChat = document.getElementById('closeChat');
@@ -967,6 +886,15 @@
         // Toggle mobile menu
         menuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
         });
 
         // Toggle dark/light mode
@@ -987,19 +915,6 @@
             document.body.classList.add('light-mode');
             themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
         }
-
-        // 3-dot dropdown menu functionality
-        dropdownBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdownMenu.classList.toggle('show');
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!dropdownMenu.contains(e.target)) {
-                dropdownMenu.classList.remove('show');
-            }
-        });
 
         // Toggle chat box
         chatBtn.addEventListener('click', () => {
