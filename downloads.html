@@ -6,478 +6,7 @@
     <title>Downloads - KAAL-MOD STORE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #6c5ce7;
-            --secondary: #a29bfe;
-            --dark: #2d3436;
-            --light: #f5f6fa;
-            --danger: #d63031;
-            --success: #00b894;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        body {
-            background-color: #1a1a2e;
-            color: var(--light);
-            background-image: radial-gradient(circle at 10% 20%, rgba(108, 92, 231, 0.1) 0%, rgba(108, 92, 231, 0.05) 90%);
-        }
-        
-        body.light-mode {
-            background-color: #f5f6fa;
-            color: #2d3436;
-            --primary: #6c5ce7;
-            --secondary: #a29bfe;
-            --dark: #2d3436;
-            --light: #f5f6fa;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background-color: rgba(26, 26, 46, 0.9);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        body.light-mode header {
-            background-color: rgba(245, 246, 250, 0.9);
-            border-bottom: 1px solid rgba(45, 52, 54, 0.1);
-        }
-        
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo-img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--primary);
-        }
-        
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--light);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        body.light-mode .menu-toggle {
-            color: var(--dark);
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .nav-links a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        body.light-mode .nav-links a {
-            color: var(--dark);
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            background: rgba(26, 26, 46, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        body.light-mode .mobile-menu {
-            background: rgba(245, 246, 250, 0.95);
-            border-bottom: 1px solid rgba(45, 52, 54, 0.1);
-        }
-        
-        .mobile-menu.active {
-            display: block;
-        }
-        
-        .mobile-menu .nav-links {
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--light);
-            font-size: 1.5rem;
-            cursor: pointer;
-            margin-left: 20px;
-        }
-        
-        body.light-mode .theme-toggle {
-            color: var(--dark);
-        }
-        
-        .hero {
-            padding: 150px 0 80px;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(44, 44, 84, 0.9));
-            border-radius: 0 0 20px 20px;
-            margin-bottom: 40px;
-        }
-        
-        body.light-mode .hero {
-            background: linear-gradient(135deg, rgba(245, 246, 250, 0.9), rgba(220, 220, 255, 0.9));
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        body.light-mode .hero p {
-            color: rgba(45, 52, 54, 0.8);
-        }
-        
-        .status-container {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 8px 20px;
-            border-radius: 50px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        body.light-mode .status-container {
-            background: rgba(255, 255, 255, 0.3);
-            border: 1px solid rgba(45, 52, 54, 0.1);
-        }
-        
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-        
-        .status-dot.online {
-            background-color: var(--success);
-            box-shadow: 0 0 10px var(--success);
-        }
-        
-        .status-dot.offline {
-            background-color: var(--danger);
-            box-shadow: 0 0 10px var(--danger);
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(108, 92, 231, 0.6);
-        }
-        
-        .downloads {
-            padding: 60px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2rem;
-            color: var(--light);
-        }
-        
-        body.light-mode .section-title {
-            color: var(--dark);
-        }
-        
-        .download-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .download-card {
-            background: rgba(26, 26, 46, 0.7);
-            border-radius: 15px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-        
-        body.light-mode .download-card {
-            background: rgba(245, 246, 250, 0.7);
-            border: 1px solid rgba(45, 52, 54, 0.1);
-        }
-        
-        .download-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: var(--primary);
-        }
-        
-        .download-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .download-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--light);
-        }
-        
-        body.light-mode .download-title {
-            color: var(--dark);
-        }
-        
-        .download-description {
-            margin-bottom: 20px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        body.light-mode .download-description {
-            color: rgba(45, 52, 54, 0.7);
-        }
-        
-        .download-version {
-            margin-bottom: 20px;
-            color: var(--primary);
-            font-weight: 600;
-        }
-        
-        .download-btn {
-            display: inline-block;
-            padding: 10px 25px;
-            background: rgba(108, 92, 231, 0.2);
-            color: var(--light);
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid var(--primary);
-        }
-        
-        body.light-mode .download-btn {
-            color: var(--dark);
-        }
-        
-        .download-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
-        
-        footer {
-            background: rgba(26, 26, 46, 0.9);
-            padding: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        body.light-mode footer {
-            background: rgba(245, 246, 250, 0.9);
-            border-top: 1px solid rgba(45, 52, 54, 0.1);
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-        }
-        
-        .footer-section h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .footer-section p {
-            margin-bottom: 15px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        body.light-mode .footer-section p {
-            color: rgba(45, 52, 54, 0.7);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        body.light-mode .footer-links a {
-            color: rgba(45, 52, 54, 0.7);
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary);
-            padding-left: 5px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        body.light-mode .social-links a {
-            background: rgba(45, 52, 54, 0.1);
-            color: var(--dark);
-        }
-        
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-        }
-        
-        body.light-mode .copyright {
-            border-top: 1px solid rgba(45, 52, 54, 0.1);
-            color: rgba(45, 52, 54, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .download-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -488,78 +17,66 @@
                     <span class="logo-text">KAAL-MOD STORE</span>
                 </div>
                 <div class="nav-links">
-                    <a href="index.html">Home</a>
                     <a href="index.html#products">Products</a>
+                    <a href="download.html">Downloads</a>
                     <a href="payment.html">Payment</a>
-                    <a href="contact.html">Contact</a>
+                    <a href="index.html#contact">Contact</a>
                 </div>
-                <button class="menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <button class="theme-toggle" id="themeToggle">
-                    <i class="fas fa-moon"></i>
-                </button>
             </nav>
-            <div class="mobile-menu" id="mobileMenu">
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="index.html#products">Products</a>
-                    <a href="payment.html">Payment</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="status-container">
-                <div class="status-dot online"></div>
-                <span>All systems operational</span>
-            </div>
-            <h1>Free Downloads</h1>
-            <p>Get our free tools and enhancements for BGMI/PUBG Mobile</p>
-        </div>
-    </section>
-
     <section class="downloads">
         <div class="container">
-            <h2 class="section-title">Available Downloads</h2>
+            <h2 class="section-title">Free Downloads</h2>
             <div class="download-grid">
                 <div class="download-card">
-                    <div class="download-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="download-title">Bypass Tool</h3>
-                    <p class="download-description">Undetected bypass solution for BGMI/PUBG Mobile</p>
-                    <p class="download-version">Version: 1.3.7</p>
+                    <h3 class="download-title"><i class="fas fa-download"></i> Bypass</h3>
+                    <p>Version: 1.3.7</p>
+                    <p>File Size: 12.5 MB</p>
+                    <p>Last Updated: 15/06/2023</p>
                     <a href="https://your-link.com/bypass.zip" class="download-btn" target="_blank">Download Now</a>
                 </div>
-                
                 <div class="download-card">
-                    <div class="download-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="download-title">SRC Package</h3>
-                    <p class="download-description">Source code for advanced users and developers</p>
-                    <p class="download-version">Version: 1.3.7</p>
+                    <h3 class="download-title"><i class="fas fa-download"></i> SRC</h3>
+                    <p>Version: 1.3.7</p>
+                    <p>File Size: 8.2 MB</p>
+                    <p>Last Updated: 15/06/2023</p>
                     <a href="https://www.mediafire.com/file/5am61hg1pg71b5i/src.zip" class="download-btn" target="_blank">Download Now</a>
                 </div>
-                
                 <div class="download-card">
-                    <div class="download-icon">
-                        <i class="fas fa-bug"></i>
-                    </div>
-                    <h3 class="download-title">KillSign Fix</h3>
-                    <p class="download-description">Permanent solution for KillSign issues</p>
-                    <p class="download-version">Version: 1.3.7</p>
+                    <h3 class="download-title"><i class="fas fa-download"></i> KillSign</h3>
+                    <p>Version: 1.3.7</p>
+                    <p>File Size: 5.7 MB</p>
+                    <p>Last Updated: 15/06/2023</p>
                     <a href="https://your-link.com/killsign-fix.zip" class="download-btn" target="_blank">Download Now</a>
+                </div>
+                <div class="download-card">
+                    <h3 class="download-title"><i class="fas fa-download"></i> Tutorial Guide</h3>
+                    <p>Version: 1.0</p>
+                    <p>File Size: 3.1 MB</p>
+                    <p>Last Updated: 10/06/2023</p>
+                    <a href="https://your-link.com/tutorial.pdf" class="download-btn" target="_blank">Download Now</a>
+                </div>
+                <div class="download-card">
+                    <h3 class="download-title"><i class="fas fa-download"></i> Config Files</h3>
+                    <p>Version: 1.3.7</p>
+                    <p>File Size: 1.8 MB</p>
+                    <p>Last Updated: 14/06/2023</p>
+                    <a href="https://your-link.com/config.zip" class="download-btn" target="_blank">Download Now</a>
+                </div>
+                <div class="download-card">
+                    <h3 class="download-title"><i class="fas fa-download"></i> Patch Notes</h3>
+                    <p>Version: 1.3.7</p>
+                    <p>File Size: 0.5 MB</p>
+                    <p>Last Updated: 15/06/2023</p>
+                    <a href="https://your-link.com/patchnotes.txt" class="download-btn" target="_blank">Download Now</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -570,14 +87,18 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
                         <li><a href="index.html#products">Products</a></li>
+                        <li><a href="download.html">Downloads</a></li>
                         <li><a href="payment.html">Payment</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="https://t.me/KAALMODOFFICIAL" target="_blank">Channel</a></li>
+                        <li><a href="https://t.me/KAALDINO" target="_blank">Support</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Follow Us</h3>
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> support@kaalmod.example</p>
+                    <p><i class="fab fa-telegram"></i> Telegram: @KAALDINO</p>
                     <div class="social-links">
                         <a href="https://t.me/KAALDINO" target="_blank"><i class="fab fa-telegram"></i></a>
                         <a href="https://t.me/KAALMODOFFICIAL" target="_blank"><i class="fab fa-telegram"></i></a>
@@ -590,35 +111,38 @@
         </div>
     </footer>
 
-    <script>
-        // DOM Elements
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const themeToggle = document.getElementById('themeToggle');
+    <!-- Live Chat Button -->
+    <div class="chat-btn" id="chatBtn">
+        <i class="fas fa-comment-dots"></i>
+    </div>
 
-        // Toggle mobile menu
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
+    <!-- Live Chat Box -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <h3>Live Support</h3>
+            <button class="close-chat" id="closeChat">&times;</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-message">
+                Welcome to KAAL-MOD STORE support! Please enter your Telegram username and message below.
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <div class="chat-input-group">
+                <label for="usernameInput">Telegram Username</label>
+                <input type="text" id="usernameInput" placeholder="@username">
+            </div>
+            <div class="chat-input-group">
+                <label for="messageInput">Your Message</label>
+                <input type="text" id="messageInput" placeholder="Type your message here">
+            </div>
+            <button class="send-btn" id="sendMessage">Send Message</button>
+            <p class="patience-message">
+                Please be patient, our team will respond to you shortly on Telegram.
+            </p>
+        </div>
+    </div>
 
-        // Toggle dark/light mode
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            
-            if (document.body.classList.contains('light-mode')) {
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                localStorage.setItem('theme', 'light');
-            } else {
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-                localStorage.setItem('theme', 'dark');
-            }
-        });
-
-        // Check for saved theme preference
-        if (localStorage.getItem('theme') === 'light') {
-            document.body.classList.add('light-mode');
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
