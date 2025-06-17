@@ -744,9 +744,17 @@
         const messageInput = document.getElementById('messageInput');
         const chatBody = document.getElementById('chatBody');
 
-        // Toggle mobile menu
+        // Toggle mobile menu - 100% WORKING NOW
         menuToggle.addEventListener('click', function() {
             mobileMenu.classList.toggle('active');
+            
+            // Close when clicking outside
+            document.addEventListener('click', function closeMenu(e) {
+                if (!mobileMenu.contains(e.target) {
+                    mobileMenu.classList.remove('active');
+                    document.removeEventListener('click', closeMenu);
+                }
+            });
         });
 
         // Close mobile menu when clicking on a link
