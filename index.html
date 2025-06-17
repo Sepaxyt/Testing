@@ -151,8 +151,413 @@
             margin-bottom: 40px;
         }
         
-        /* Rest of your CSS styles... */
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: rgba(45, 52, 54, 0.8);
+        }
+        
+        .status-container {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(45, 52, 54, 0.1);
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .status-dot.online {
+            background-color: var(--success);
+            box-shadow: 0 0 10px var(--success);
+        }
+        
+        .status-dot.offline {
+            background-color: var(--danger);
+            box-shadow: 0 0 10px var(--danger);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(108, 92, 231, 0.6);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .products {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            color: var(--dark);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: rgba(245, 246, 250, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(45, 52, 54, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
+        
+        .product-header {
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.2), rgba(162, 155, 254, 0.1));
+            border-bottom: 1px solid rgba(45, 52, 54, 0.1);
+        }
+        
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .product-price span {
+            font-size: 1rem;
+            color: rgba(45, 52, 54, 0.6);
+        }
+        
+        .product-body {
+            padding: 20px;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .product-features li {
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(45, 52, 54, 0.1);
+            display: flex;
+            align-items: center;
+            color: var(--dark);
+        }
+        
+        .product-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .product-features li i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .product-footer {
+            padding: 0 20px 20px;
+            text-align: center;
+        }
+        
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .quick-link {
+            padding: 12px 25px;
+            background: rgba(108, 92, 231, 0.2);
+            color: var(--dark);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--primary);
+        }
+        
+        .quick-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        footer {
+            background: rgba(245, 246, 250, 0.9);
+            padding: 40px 0;
+            border-top: 1px solid rgba(45, 52, 54, 0.1);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-section p {
+            margin-bottom: 15px;
+            color: rgba(45, 52, 54, 0.7);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(45, 52, 54, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(45, 52, 54, 0.1);
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(45, 52, 54, 0.1);
+            color: rgba(45, 52, 54, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Live Chat Styles */
+        .chat-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(108, 92, 231, 0.5);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .chat-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-box {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            background: rgba(245, 246, 250, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            overflow: hidden;
+            display: none;
+            border: 1px solid rgba(45, 52, 54, 0.1);
+        }
+
+        .chat-header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .chat-body {
+            padding: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            background: rgba(45, 52, 54, 0.1);
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+
+        .chat-input-area {
+            padding: 15px;
+            background: rgba(220, 220, 255, 0.5);
+        }
+
+        .chat-input-group {
+            margin-bottom: 10px;
+        }
+
+        .chat-input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: rgba(45, 52, 54, 0.7);
+        }
+
+        .chat-input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(45, 52, 54, 0.2);
+            border-radius: 5px;
+            background: rgba(45, 52, 54, 0.1);
+            color: var(--dark);
+        }
+
+        .send-btn {
+            width: 100%;
+            padding: 10px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:hover {
+            background: var(--secondary);
+        }
+
+        .patience-message {
+            font-size: 0.8rem;
+            color: rgba(45, 52, 54, 0.6);
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .chat-box {
+                width: 90%;
+                right: 5%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -186,50 +591,75 @@
         </div>
     </header>
 
-    <!-- Rest of your HTML content... -->
+    <section class="hero">
+        <div class="container">
+            <div class="status-container">
+                <div class="status-dot online"></div>
+                <span>All systems operational</span>
+            </div>
+            <h1>Premium BGMI/PUBG Mobile Hacks</h1>
+            <p>Undetected, feature-rich solutions to dominate your gameplay. Regular updates and 24/7 support.</p>
+            <div class="quick-links">
+                <a href="#products" class="quick-link">View Products</a>
+                <a href="downloads.html" class="quick-link">Free Downloads</a>
+            </div>
+        </div>
+    </section>
 
-    <script>
-        // Mobile Menu Toggle - 100% WORKING NOW
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        
-        // Toggle mobile menu
-        menuToggle.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent event from bubbling up
-            mobileMenu.classList.toggle('active');
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!mobileMenu.contains(e.target) && e.target !== menuToggle) {
-                mobileMenu.classList.remove('active');
-            }
-        });
-        
-        // Close menu when clicking on a link
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-        
-        // Media query for mobile devices
-        function handleMobileView() {
-            if (window.innerWidth <= 768) {
-                document.querySelector('.navbar .nav-links').style.display = 'none';
-                menuToggle.style.display = 'block';
-            } else {
-                document.querySelector('.navbar .nav-links').style.display = 'flex';
-                menuToggle.style.display = 'none';
-                mobileMenu.classList.remove('active');
-            }
-        }
-        
-        // Initial check
-        handleMobileView();
-        
-        // Check on resize
-        window.addEventListener('resize', handleMobileView);
-    </script>
-</body>
-</html>
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Premium Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-header">
+                        <h3 class="product-title">Bypass Package</h3>
+                        <div class="product-price">₹499 <span>/month</span></div>
+                    </div>
+                    <div class="product-body">
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Undetected bypass</li>
+                            <li><i class="fas fa-check-circle"></i> Auto-updating</li>
+                            <li><i class="fas fa-check-circle"></i> Works on all devices</li>
+                            <li><i class="fas fa-check-circle"></i> 24/7 support</li>
+                            <li><i class="fas fa-check-circle"></i> Regular updates</li>
+                        </ul>
+                    </div>
+                    <div class="product-footer">
+                        <a href="https://t.me/KAALDINO" class="btn" target="_blank">Purchase Now</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <h3 class="product-title">SRC Package</h3>
+                        <div class="product-price">₹999 <span>/month</span></div>
+                    </div>
+                    <div class="product-body">
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Full source code</li>
+                            <li><i class="fas fa-check-circle"></i> Customizable features</li>
+                            <li><i class="fas fa-check-circle"></i> Detailed documentation</li>
+                            <li><i class="fas fa-check-circle"></i> Developer support</li>
+                            <li><i class="fas fa-check-circle"></i> Lifetime updates</li>
+                        </ul>
+                    </div>
+                    <div class="product-footer">
+                        <a href="https://t.me/KAALDINO" class="btn" target="_blank">Purchase Now</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <h3 class="product-title">KillSign Fix</h3>
+                        <div class="product-price">₹299 <span>/one-time</span></div>
+                    </div>
+                    <div class="product-body">
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> Permanent fix</li>
+                            <li><i class="fas fa-check-circle"></i> Easy to install</li>
+                            <li><i class="fas fa-check-circle"></i> Works with all versions</li>
+                            <li><i class="fas fa-check-circle"></i> No root required</li>
+                            <li><i class="fas fa-check-circle"></i> Video tutorial included</li>
+                        </ul>
+                    </div>
+         
