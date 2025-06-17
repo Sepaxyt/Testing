@@ -14,6 +14,19 @@
             --light: #f5f6fa;
             --danger: #d63031;
             --success: #00b894;
+            --bg-color: #1a1a2e;
+            --text-color: #f5f6fa;
+            --card-bg: rgba(26, 26, 46, 0.7);
+            --header-bg: rgba(26, 26, 46, 0.9);
+        }
+        
+        [data-theme="light"] {
+            --bg-color: #f5f6fa;
+            --text-color: #2d3436;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --header-bg: rgba(255, 255, 255, 0.9);
+            --light: #2d3436;
+            --dark: #f5f6fa;
         }
         
         * {
@@ -24,8 +37,10 @@
         }
         
         body {
-            background-color: #f5f6fa;
-            color: #2d3436;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: radial-gradient(circle at 10% 20%, rgba(108, 92, 231, 0.1) 0%, rgba(108, 92, 231, 0.05) 90%);
+            transition: all 0.3s ease;
         }
         
         .container {
@@ -35,12 +50,13 @@
         }
         
         header {
-            background-color: rgba(245, 246, 250, 0.9);
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             z-index: 1000;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(45, 52, 54, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .navbar {
@@ -48,7 +64,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
-            position: relative;
         }
         
         .logo {
@@ -73,23 +88,14 @@
             -webkit-text-fill-color: transparent;
         }
         
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--dark);
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 1001;
-        }
-        
         .nav-links {
             display: flex;
             gap: 30px;
+            align-items: center;
         }
         
         .nav-links a {
-            color: var(--dark);
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -115,38 +121,38 @@
             width: 100%;
         }
         
-        .mobile-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: rgba(245, 246, 250, 0.95);
-            padding: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-            border-bottom: 1px solid rgba(45, 52, 54, 0.1);
+        /* Theme Toggle Styles */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 20px;
+            background: rgba(108, 92, 231, 0.1);
+            border: 1px solid rgba(108, 92, 231, 0.3);
+            transition: all 0.3s ease;
         }
         
-        .mobile-menu.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
+        .theme-toggle:hover {
+            background: rgba(108, 92, 231, 0.2);
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .theme-toggle i {
+            font-size: 1rem;
+            color: var(--primary);
         }
         
-        .mobile-menu .nav-links {
-            flex-direction: column;
-            gap: 15px;
+        .theme-toggle span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-color);
         }
         
         .hero {
             padding: 150px 0 80px;
             text-align: center;
-            background: linear-gradient(135deg, rgba(245, 246, 250, 0.9), rgba(220, 220, 255, 0.9));
+            background: linear-gradient(135deg, var(--header-bg), rgba(44, 44, 84, 0.9));
             border-radius: 0 0 20px 20px;
             margin-bottom: 40px;
         }
@@ -163,17 +169,17 @@
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto 30px;
-            color: rgba(45, 52, 54, 0.8);
+            color: rgba(var(--text-color), 0.8);
         }
         
         .status-container {
             display: inline-flex;
             align-items: center;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.3);
             padding: 8px 20px;
             border-radius: 50px;
             margin-bottom: 30px;
-            border: 1px solid rgba(45, 52, 54, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .status-dot {
@@ -232,7 +238,7 @@
             text-align: center;
             margin-bottom: 50px;
             font-size: 2rem;
-            color: var(--dark);
+            color: var(--text-color);
         }
         
         .product-grid {
@@ -242,11 +248,11 @@
         }
         
         .product-card {
-            background: rgba(245, 246, 250, 0.7);
+            background: var(--card-bg);
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.3s ease;
-            border: 1px solid rgba(45, 52, 54, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
@@ -259,13 +265,13 @@
         .product-header {
             padding: 20px;
             background: linear-gradient(135deg, rgba(108, 92, 231, 0.2), rgba(162, 155, 254, 0.1));
-            border-bottom: 1px solid rgba(45, 52, 54, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .product-title {
             font-size: 1.5rem;
             margin-bottom: 5px;
-            color: var(--dark);
+            color: var(--text-color);
         }
         
         .product-price {
@@ -277,7 +283,7 @@
         
         .product-price span {
             font-size: 1rem;
-            color: rgba(45, 52, 54, 0.6);
+            color: rgba(var(--text-color), 0.6);
         }
         
         .product-body {
@@ -291,10 +297,10 @@
         
         .product-features li {
             padding: 8px 0;
-            border-bottom: 1px dashed rgba(45, 52, 54, 0.1);
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
-            color: var(--dark);
+            color: var(--text-color);
         }
         
         .product-features li:last-child {
@@ -311,32 +317,67 @@
             text-align: center;
         }
         
-        .quick-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+        .downloads {
+            padding: 60px 0;
+            background: var(--card-bg);
+            border-radius: 20px;
             margin-bottom: 40px;
         }
         
-        .quick-link {
-            padding: 12px 25px;
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .download-card {
+            background: rgba(44, 44, 84, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .download-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+        
+        .download-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-color);
+        }
+        
+        .download-title i {
+            color: var(--primary);
+        }
+        
+        .download-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
             background: rgba(108, 92, 231, 0.2);
-            color: var(--dark);
-            border-radius: 50px;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
             text-decoration: none;
+            margin-top: 15px;
             transition: all 0.3s ease;
             border: 1px solid var(--primary);
         }
         
-        .quick-link:hover {
+        .download-btn:hover {
             background: var(--primary);
-            color: white;
         }
         
         footer {
-            background: rgba(245, 246, 250, 0.9);
+            background: var(--header-bg);
             padding: 40px 0;
-            border-top: 1px solid rgba(45, 52, 54, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .footer-content {
@@ -359,7 +400,7 @@
         
         .footer-section p {
             margin-bottom: 15px;
-            color: rgba(45, 52, 54, 0.7);
+            color: rgba(var(--text-color), 0.7);
         }
         
         .footer-links {
@@ -371,7 +412,7 @@
         }
         
         .footer-links a {
-            color: rgba(45, 52, 54, 0.7);
+            color: rgba(var(--text-color), 0.7);
             text-decoration: none;
             transition: all 0.3s ease;
         }
@@ -394,23 +435,22 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: rgba(45, 52, 54, 0.1);
-            color: var(--dark);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
             transition: all 0.3s ease;
         }
         
         .social-links a:hover {
             background: var(--primary);
             transform: translateY(-3px);
-            color: white;
         }
         
         .copyright {
             text-align: center;
             margin-top: 40px;
             padding-top: 20px;
-            border-top: 1px solid rgba(45, 52, 54, 0.1);
-            color: rgba(45, 52, 54, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(var(--text-color), 0.5);
             font-size: 0.9rem;
         }
 
@@ -443,13 +483,14 @@
             bottom: 100px;
             right: 30px;
             width: 350px;
-            background: rgba(245, 246, 250, 0.95);
+            background: var(--header-bg);
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             z-index: 999;
             overflow: hidden;
             display: none;
-            border: 1px solid rgba(45, 52, 54, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .chat-header {
@@ -481,17 +522,17 @@
         }
 
         .chat-message {
-            background: rgba(45, 52, 54, 0.1);
+            background: rgba(255, 255, 255, 0.1);
             padding: 10px 15px;
             border-radius: 10px;
             margin-bottom: 10px;
             font-size: 0.9rem;
-            color: var(--dark);
+            color: var(--text-color);
         }
 
         .chat-input-area {
             padding: 15px;
-            background: rgba(220, 220, 255, 0.5);
+            background: rgba(44, 44, 84, 0.5);
         }
 
         .chat-input-group {
@@ -502,16 +543,16 @@
             display: block;
             margin-bottom: 5px;
             font-size: 0.9rem;
-            color: rgba(45, 52, 54, 0.7);
+            color: rgba(var(--text-color), 0.7);
         }
 
         .chat-input-group input {
             width: 100%;
             padding: 10px;
-            border: 1px solid rgba(45, 52, 54, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 5px;
-            background: rgba(45, 52, 54, 0.1);
-            color: var(--dark);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
         }
 
         .send-btn {
@@ -531,18 +572,21 @@
 
         .patience-message {
             font-size: 0.8rem;
-            color: rgba(45, 52, 54, 0.6);
+            color: rgba(var(--text-color), 0.6);
             margin-top: 10px;
             text-align: center;
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
             }
             
-            .menu-toggle {
-                display: block;
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             .hero h1 {
@@ -569,25 +613,16 @@
                     <span class="logo-text">KAAL-MOD STORE</span>
                 </div>
                 <div class="nav-links">
-                    <a href="index.html">Home</a>
                     <a href="#products">Products</a>
-                    <a href="downloads.html">Downloads</a>
+                    <a href="#downloads">Downloads</a>
                     <a href="payment.html">Payment</a>
-                    <a href="contact.html">Contact</a>
+                    <a href="#contact">Contact</a>
+                    <div class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                        <span>Dark Mode</span>
+                    </div>
                 </div>
-                <button class="menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
             </nav>
-            <div class="mobile-menu" id="mobileMenu">
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="#products">Products</a>
-                    <a href="downloads.html">Downloads</a>
-                    <a href="payment.html">Payment</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
         </div>
     </header>
 
@@ -599,10 +634,8 @@
             </div>
             <h1>Premium BGMI/PUBG Mobile Hacks</h1>
             <p>Undetected, feature-rich solutions to dominate your gameplay. Regular updates and 24/7 support.</p>
-            <div class="quick-links">
-                <a href="#products" class="quick-link">View Products</a>
-                <a href="downloads.html" class="quick-link">Free Downloads</a>
-            </div>
+            <a href="#products" class="btn">View Products</a>
+            <a href="#downloads" class="btn btn-outline">Free Downloads</a>
         </div>
     </section>
 
@@ -662,4 +695,224 @@
                             <li><i class="fas fa-check-circle"></i> Video tutorial included</li>
                         </ul>
                     </div>
-         
+                    <div class="product-footer">
+                        <a href="https://t.me/KAALDINO" class="btn" target="_blank">Purchase Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="downloads" id="downloads">
+        <div class="container">
+            <h2 class="section-title">Free Downloads</h2>
+            <div class="download-grid">
+                <div class="download-card">
+                    <h3 class="download-title"><i class="fas fa-download"></i> Bypass</h3>
+                    <p>Version: 1.3.7</p>
+                    <a href="https://your-link.com/bypass.zip" class="download-btn" target="_blank">Download</a>
+                </div>
+                <div class="download-card">
+                    <h3 class="download-title"><i class="fas fa-download"></i> SRC</h3>
+                    <p>Version: 1.3.7</p>
+                    <a href="https://www.mediafire.com/file/5am61hg1pg71b5i/src.zip" class="download-btn" target="_blank">Download</a>
+                </div>
+                <div class="download-card">
+                    <h3 class="download-title"><i class="fas fa-download"></i> KillSign</h3>
+                    <p>Version: 1.3.7</p>
+                    <a href="https://your-link.com/killsign-fix.zip" class="download-btn" target="_blank">Download</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>KAAL-MOD STORE provides premium quality game enhancements for BGMI and PUBG Mobile players worldwide.</p>
+                    <p>Our solutions are tested and updated regularly to ensure maximum performance and security.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#downloads">Downloads</a></li>
+                        <li><a href="payment.html">Payment</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="https://t.me/KAALMODOFFICIAL" target="_blank">Channel</a></li>
+                        <li><a href="https://t.me/KAALDINO" target="_blank">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> support@kaalmod.example</p>
+                    <p><i class="fab fa-telegram"></i> Telegram: @KAALDINO</p>
+                    <div class="social-links">
+                        <a href="https://t.me/KAALDINO" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://t.me/KAALMODOFFICIAL" target="_blank"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 KAAL-MOD STORE. All rights reserved. BGMI and PUBG Mobile are registered trademarks of their respective owners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Live Chat Button -->
+    <div class="chat-btn" id="chatBtn">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <!-- Live Chat Box -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <h3>Live Support</h3>
+            <button class="close-chat" id="closeChat">&times;</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-message">
+                Welcome to KAAL-MOD STORE support! Please enter your Telegram username and message below.
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <div class="chat-input-group">
+                <label for="usernameInput">Telegram Username</label>
+                <input type="text" id="usernameInput" placeholder="@username">
+            </div>
+            <div class="chat-input-group">
+                <label for="messageInput">Your Message</label>
+                <input type="text" id="messageInput" placeholder="Type your message here">
+            </div>
+            <button class="send-btn" id="sendMessage">Send Message</button>
+            <p class="patience-message">
+                Please be patient, our team will respond to you shortly on Telegram.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const themeText = themeToggle.querySelector('span');
+        
+        // Check for saved theme preference or use preferred color scheme
+        const currentTheme = localStorage.getItem('theme') || 
+                            (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        
+        // Apply the current theme
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        updateThemeToggle(currentTheme);
+        
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeToggle(newTheme);
+        });
+        
+        function updateThemeToggle(theme) {
+            if (theme === 'light') {
+                themeIcon.className = 'fas fa-sun';
+                themeText.textContent = 'Light Mode';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+                themeText.textContent = 'Dark Mode';
+            }
+        }
+
+        // Telegram Bot Configuration
+        const botToken = '7879797116:AAEa0mRSJqmwx53uio848KrIU9yEilLbIn8';
+        const chatId = '6690653192';
+
+        // Chat functionality
+        const chatBtn = document.getElementById('chatBtn');
+        const chatBox = document.getElementById('chatBox');
+        const closeChat = document.getElementById('closeChat');
+        const sendMessage = document.getElementById('sendMessage');
+        const usernameInput = document.getElementById('usernameInput');
+        const messageInput = document.getElementById('messageInput');
+        const chatBody = document.getElementById('chatBody');
+
+        // Toggle chat box
+        chatBtn.addEventListener('click', () => {
+            chatBox.style.display = chatBox.style.display === 'block' ? 'none' : 'block';
+        });
+
+        closeChat.addEventListener('click', () => {
+            chatBox.style.display = 'none';
+        });
+
+        // Send message to Telegram bot
+        sendMessage.addEventListener('click', sendMessageToTelegram);
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessageToTelegram();
+            }
+        });
+
+        function sendMessageToTelegram() {
+            const username = usernameInput.value.trim();
+            const message = messageInput.value.trim();
+
+            if (!username) {
+                alert('Please enter your Telegram username');
+                return;
+            }
+
+            if (!message) {
+                alert('Please enter your message');
+                return;
+            }
+
+            // Add user message to chat
+            const userMessage = document.createElement('div');
+            userMessage.className = 'chat-message';
+            userMessage.textContent = `You: ${message}`;
+            chatBody.appendChild(userMessage);
+
+            // Clear message input
+            messageInput.value = '';
+
+            // Scroll to bottom
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            // Send to Telegram bot
+            const fullMessage = `New message from KAAL-MOD STORE website:\n\nUsername: ${username}\nMessage: ${message}`;
+            
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: fullMessage
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const botResponse = document.createElement('div');
+                botResponse.className = 'chat-message';
+                botResponse.textContent = 'Support: Thank you for your message. We will contact you shortly on Telegram.';
+                chatBody.appendChild(botResponse);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            })
+            .catch(error => {
+                console.error('Error sending message:', error);
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'chat-message';
+                errorMessage.textContent = 'Support: Could not send message. Please contact us directly on Telegram @KAALDINO';
+                chatBody.appendChild(errorMessage);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            });
+        }
+    </script>
+</body>
+</html>
