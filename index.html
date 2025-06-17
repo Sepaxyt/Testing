@@ -48,6 +48,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
+            position: relative;
         }
         
         .logo {
@@ -116,8 +117,8 @@
         
         .mobile-menu {
             display: none;
-            position: fixed;
-            top: 70px;
+            position: absolute;
+            top: 100%;
             left: 0;
             width: 100%;
             background: rgba(245, 246, 250, 0.95);
@@ -562,6 +563,7 @@
                     <span class="logo-text">KAAL-MOD STORE</span>
                 </div>
                 <div class="nav-links">
+                    <a href="index.html">Home</a>
                     <a href="#products">Products</a>
                     <a href="downloads.html">Downloads</a>
                     <a href="payment.html">Payment</a>
@@ -573,6 +575,7 @@
             </nav>
             <div class="mobile-menu" id="mobileMenu">
                 <div class="nav-links">
+                    <a href="index.html">Home</a>
                     <a href="#products">Products</a>
                     <a href="downloads.html">Downloads</a>
                     <a href="payment.html">Payment</a>
@@ -672,6 +675,7 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="#products">Products</a></li>
                         <li><a href="downloads.html">Downloads</a></li>
                         <li><a href="payment.html">Payment</a></li>
@@ -741,7 +745,7 @@
         const chatBody = document.getElementById('chatBody');
 
         // Toggle mobile menu
-        menuToggle.addEventListener('click', () => {
+        menuToggle.addEventListener('click', function() {
             mobileMenu.classList.toggle('active');
         });
 
