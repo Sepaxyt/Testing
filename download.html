@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAAL-MOD STORE - Downloads</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --danger: #d63031;
+            --success: #00b894;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #1a1a2e;
+            color: var(--light);
+            background-image: radial-gradient(circle at 10% 20%, rgba(108, 92, 231, 0.1) 0%, rgba(108, 92, 231, 0.05) 90%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: rgba(26, 26, 46, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .downloads-hero {
+            padding: 180px 0 60px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(44, 44, 84, 0.9));
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .downloads-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .downloads-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .download-section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+        }
+        
+        .download-container {
+            background: rgba(26, 26, 46, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .download-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .download-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .download-version {
+            background: rgba(108, 92, 231, 0.2);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+        
+        .download-content {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .download-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .download-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .download-features li {
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+        }
+        
+        .download-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .download-features li i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .download-instructions {
+            background: rgba(44, 44, 84, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .download-instructions h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .download-instructions ol {
+            padding-left: 20px;
+        }
+        
+        .download-instructions li {
+            margin-bottom: 10px;
+        }
+        
+        .download-actions {
+            flex: 0 0 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(108, 92, 231, 0.6);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .btn-small {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+        
+        .download-screenshots {
+            margin-top: 30px;
+        }
+        
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .screenshot {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .screenshot:hover {
+            transform: scale(1.05);
+            border-color: var(--primary);
+        }
+        
+        .screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        footer {
+            background: rgba(26, 26, 46, 0.9);
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-section p {
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Live Chat Styles */
+        .chat-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(108, 92, 231, 0.5);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .chat-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-box {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            background: rgba(26, 26, 46, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            overflow: hidden;
+            display: none;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chat-header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .chat-body {
+            padding: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .chat-input-area {
+            padding: 15px;
+            background: rgba(44, 44, 84, 0.5);
+        }
+
+        .chat-input-group {
+            margin-bottom: 10px;
+        }
+
+        .chat-input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .chat-input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .send-btn {
+            width: 100%;
+            padding: 10px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:hover {
+            background: var(--secondary);
+        }
+
+        .patience-message {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .downloads-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .downloads-hero p {
+                font-size: 1rem;
+            }
+
+            .download-content {
+                flex-direction: column;
+            }
+
+            .download-actions {
+                flex: 1;
+            }
+
+            .chat-box {
+                width: 90%;
+                right: 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="https://i.ibb.co/JFMqhJsw/IMG-20250615-154619-655.jpg" alt="KAAL-MOD STORE Logo" class="logo-img">
+                    <span class="logo-text">KAAL-MOD STORE</span>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html#products">Products</a>
+                    <a href="download.html">Downloads</a>
+                    <a href="payment.html">Payment</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="downloads-hero">
+        <div class="container">
+            <h1>Download Center</h1>
+            <p>Get the latest versions of our premium BGMI/PUBG Mobile solutions. All downloads are virus-free and regularly updated.</p>
+        </div>
+    </section>
+
+    <section class="download-section">
+        <div class="container">
+            <h2 class="section-title">Available Downloads</h2>
+            
+            <!-- Bypass Download -->
+            <div class="download-container" id="bypass">
+                <div class="download-header">
+                    <h3 class="download-title">Bypass Package</h3>
+                    <span class="download-version">Version: 1.3.7</span>
+                </div>
+                <div class="download-content">
+                    <div class="download-info">
+                        <p>Our undetectable bypass solution that allows you to use various mods without getting banned. Regularly updated to stay ahead of detection systems.</p>
+                        <ul class="download-features">
+                            <li><i class="fas fa-check-circle"></i> Works on all Android devices</li>
+                            <li><i class="fas fa-check-circle"></i> No root required</li>
+                            <li><i class="fas fa-check-circle"></i> Auto-updating mechanism</li>
+                            <li><i class="fas fa-check-circle"></i> Low memory usage</li>
+                            <li><i class="fas fa-check-circle"></i> Compatible with all BGMI versions</li>
+                        </ul>
+                        <div class="download-instructions">
+                            <h3>Installation Instructions</h3>
+                            <ol>
+                                <li>Download the bypass package</li>
+                                <li>Enable "Install from Unknown Sources" in settings</li>
+                                <li>Install the APK file</li>
+                                <li>Open the app and follow the on-screen instructions</li>
+                                <li>Launch BGMI and enjoy!</li>
+                            </ol>
+                        </div>
+                        <div class="download-screenshots">
+                            <h3>Screenshots</h3>
+                            <div class="screenshot-grid">
+                                <div class="screenshot">
+                                    <img src="https://via.placeholder.com/300x500/6c5ce7/ffffff?text=Bypass+1" alt="Bypass Screenshot 1">
+                                </div>
+                                <div class="screenshot">
+                                    <img src="https://via.placeholder.com/300x500/6c5ce7/ffffff?text=Bypass+2" alt="Bypass Screenshot 2">
+                                </div>
+                                <div class="screenshot">
+                                    <img src="https://via.placeholder.com/300x500/6c5ce7/ffffff?text=Bypass+3" alt="Bypass Screenshot 3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="download-actions">
+                        <a href="https://your-link.com/bypass.zip" class="btn" download>Download Now</a>
+                        <a href="https://t.me/KAALDINO" class="btn btn-outline" target="_blank">Get Support</a>
+                        <a href="index.html#products" class="btn btn-outline btn-small">View Premium Version</a>
+                        <div class="download-info-box">
+                            <h4>File Information</h4>
+                            <p><strong>Size:</strong> 15.4 MB</p>
+                            <p><strong>Updated:</strong> 15 June 2023</p>
+                            <p><strong>Downloads:</strong> 12,457</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SRC Download -->
+            <div class="download-container" id="src">
+                <div class="download-header">
+                    <h3 class="download-title">SRC Package</h3>
+                    <span class="download-version">Version: 1.3.7</span>
+                </div>
+                <div class="download-content">
+                    <div class="download-info">
+                        <p>The complete source code package for developers who want to customize and build their own solutions based on our technology.</p>
+                        <ul class="download-features">
+                            <li><i class="fas fa-check-circle"></i> Full source code access</li>
+                            <li><i class="fas fa-check-circle"></i> Detailed documentation</li>
+                            <li><i class="fas fa-check-circle"></i> Example implementations</li>
+                            <li><i class="fas fa-check-circle"></i> Regular updates</li>
+                            <li><i class="fas fa-check-circle"></i> Developer community access</li>
+                        </ul>
+                        <div class="download-instructions">
+                            <h3>Installation Instructions</h3>
+                            <ol>
+                                <li>Download the source code package</li>
+                                <li>Extract the ZIP file</li>
+                                <li>Open the project in Android Studio</li>
+                                <li>Follow the documentation to build</li>
+                                <li>Customize as needed</li>
+                            </ol>
+                        </div>
+                        <div class="download-screenshots">
+                            <h3>Screenshots</h3>
+                            <div class="screenshot-grid">
+                                <div class="screenshot">
+                                    <img src="https://via.placeholder.com/300x500/a29bfe/ffffff?text=SRC+1" alt="SRC Screenshot 1">
+                                </div>
+                                <div class="screenshot">
+                                    <img src="https://via.placeholder.com/300x500/a29bfe/ffffff?text=SRC+2" alt="SRC Screenshot 2">
+                                </div>
+                                <div class="screenshot">
+                                    <img src="https://via.placeholder.com/300x500/a29bfe/ffffff?text=SRC+3" alt="SRC Screenshot 3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="download-actions">
+                        <a href="https://www.mediafire.com/file/5am61hg1pg71b5i/src.zip" class="btn" download>Download Now</a>
+                        <a href="https://t.me/KAALDINO" class="btn btn-outline" target="_blank">Get Support</a>
+                        <a href="index.html#products" class="btn btn-outline btn-small">View Premium Version</a>
+                        <div class="download-info-box">
+                            <h4>File Information</h4>
+                            <p><strong>Size:</strong> 48.2 MB</p>
+                            <p><strong>Updated:</strong> 12 June 2023</p>
+                            <p><strong>Downloads:</strong> 5,892</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- KillSign Download -->
+            <div class="download-container" id="killsign">
+                <div class="download-header">
+                    <h3 class="download-title">KillSign Fix</h3>
+                    <span class="download-version">Version: 1.3.7</span>
+                </div>
+                <div class="download-content">
+                    <div class="download-info">
+                        <p>Permanent solution to fix the KillSign issue in BGMI/PUBG Mobile. Works on all devices without requiring root access.</p>
+                        <ul class="download-features">
+                            <li><i class="fas fa-check-circle"></i> One-time installation</li>
+                            <li><i class="fas fa-check-circle"></i> No root required</li>
+                            <li><i class="fas fa-check-circle"></i> Works on all BGMI versions</li>
+                            <li><i class="fas fa-check-circle"></i> Small file size</li>
+                            <li><i class="fas fa-check-circle"></i> Video tutorial included</li>
+                        </ul>
+                        <div class="download-instructions">
+                            <h3>Installation Instructions</h3>
+                            <ol>
+                                <li>Download the KillSign fix package</li>
+                                <li>Enable "Install from Unknown Sources"</li>
+                                <li>Install the APK file</li>
+                                <li>Open the app and apply the fix</li>
+                                <li>Restart your device</li>
+                            </ol>
+                        </div>
+                        <div class="download-screenshots">
+                            <h3>Screenshots</h3>
+                            <div class="screenshot-grid">
+                                <div class="screenshot">
+                                    <img src="https://via.placeholder.com/300x500/00b894/ffffff?text=KillSign+1" alt="KillSign Screenshot 1">
+                                </div>
+                                <div class="screenshot">
+                                    <img src="https://via.placeholder.com/300x500/00b894/ffffff?text=KillSign+2" alt="KillSign Screenshot 2">
+                                </div>
+                                <div class="screenshot">
+                                    <img src="https://via.placeholder.com/300x500/00b894/ffffff?text=KillSign+3" alt="KillSign Screenshot 3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="download-actions">
+                        <a href="https://your-link.com/killsign-fix.zip" class="btn" download>Download Now</a>
+                        <a href="https://t.me/KAALDINO" class="btn btn-outline" target="_blank">Get Support</a>
+                        <a href="index.html#products" class="btn btn-outline btn-small">View Premium Version</a>
+                        <div class="download-info-box">
+                            <h4>File Information</h4>
+                            <p><strong>Size:</strong> 8.7 MB</p>
+                            <p><strong>Updated:</strong> 10 June 2023</p>
+                            <p><strong>Downloads:</strong> 23,145</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>KAAL-MOD STORE provides premium quality game enhancements for BGMI and PUBG Mobile players worldwide.</p>
+                    <p>Our solutions are tested and updated regularly to ensure maximum performance and security.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#products">Products</a></li>
+                        <li><a href="download.html">Downloads</a></li>
+                        <li><a href="payment.html">Payment</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="https://t.me/KAALMODOFFICIAL" target="_blank">Channel</a></li>
+                        <li><a href="https://t.me/KAALDINO" target="_blank">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> support@kaalmod.example</p>
+                    <p><i class="fab fa-telegram"></i> Telegram: @KAALDINO</p>
+                    <div class="social-links">
+                        <a href="https://t.me/KAALDINO" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://t.me/KAALMODOFFICIAL" target="_blank"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 KAAL-MOD STORE. All rights reserved. BGMI and PUBG Mobile are registered trademarks of their respective owners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Live Chat Button -->
+    <div class="chat-btn" id="chatBtn">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <!-- Live Chat Box -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            <h3>Live Support</h3>
+            <button class="close-chat" id="closeChat">&times;</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-message">
+                Welcome to KAAL-MOD STORE support! Please enter your Telegram username and message below.
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <div class="chat-input-group">
+                <label for="usernameInput">Telegram Username</label>
+                <input type="text" id="usernameInput" placeholder="@username">
+            </div>
+            <div class="chat-input-group">
+                <label for="messageInput">Your Message</label>
+                <input type="text" id="messageInput" placeholder="Type your message here">
+            </div>
+            <button class="send-btn" id="sendMessage">Send Message</button>
+            <p class="patience-message">
+                Please be patient, our team will respond to you shortly on Telegram.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Telegram Bot Configuration
+        const botToken = '7879797116:AAEa0mRSJqmwx53uio848KrIU9yEilLbIn8';
+        const chatId = '6690653192';
+
+        // Chat functionality
+        const chatBtn = document.getElementById('chatBtn');
+        const chatBox = document.getElementById('chatBox');
+        const closeChat = document.getElementById('closeChat');
+        const sendMessage = document.getElementById('sendMessage');
+        const usernameInput = document.getElementById('usernameInput');
+        const messageInput = document.getElementById('messageInput');
+        const chatBody = document.getElementById('chatBody');
+
+        // Toggle chat box
+        chatBtn.addEventListener('click', () => {
+            chatBox.style.display = chatBox.style.display === 'block' ? 'none' : 'block';
+        });
+
+        closeChat.addEventListener('click', () => {
+            chatBox.style.display = 'none';
+        });
+
+        // Send message to Telegram bot
+        sendMessage.addEventListener('click', sendMessageToTelegram);
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessageToTelegram();
+            }
+        });
+
+        function sendMessageToTelegram() {
+            const username = usernameInput.value.trim();
+            const message = messageInput.value.trim();
+
+            if (!username) {
+                alert('Please enter your Telegram username');
+                return;
+            }
+
+            if (!message) {
+                alert('Please enter your message');
+                return;
+            }
+
+            // Add user message to chat
+            const userMessage = document.createElement('div');
+            userMessage.className = 'chat-message';
+            userMessage.textContent = `You: ${message}`;
+            chatBody.appendChild(userMessage);
+
+            // Clear message input
+            messageInput.value = '';
+
+            // Scroll to bottom
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            // Send to Telegram bot
+            const fullMessage = `New message from KAAL-MOD STORE website:\n\nUsername: ${username}\nMessage: ${message}`;
+            
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: fullMessage
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const botResponse = document.createElement('div');
+                botResponse.className = 'chat-message';
+                botResponse.textContent = 'Support: Thank you for your message. We will contact you shortly on Telegram.';
+                chatBody.appendChild(botResponse);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            })
+            .catch(error => {
+                console.error('Error sending message:', error);
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'chat-message';
+                errorMessage.textContent = 'Support: Could not send message. Please contact us directly on Telegram @KAALDINO';
+                chatBody.appendChild(errorMessage);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            });
+        }
+
+        // Scroll to specific download section if hash exists in URL
+        window.addEventListener('load', function() {
+            if (window.location.hash) {
+                const element = document.querySelector(window.location.hash);
+                if (element) {
+                    setTimeout(() => {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                    }, 300);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
