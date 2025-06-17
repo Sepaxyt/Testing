@@ -277,7 +277,7 @@
         }
         
         .screenshot {
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
@@ -585,16 +585,10 @@
                             </ol>
                         </div>
                         <div class="download-screenshots">
-                            <h3>Screenshots</h3>
+                            <h3>Screenshot</h3>
                             <div class="screenshot-grid">
                                 <div class="screenshot">
-                                    <img src="https://via.placeholder.com/300x500/6c5ce7/ffffff?text=Bypass+1" alt="Bypass Screenshot 1">
-                                </div>
-                                <div class="screenshot">
-                                    <img src="https://via.placeholder.com/300x500/6c5ce7/ffffff?text=Bypass+2" alt="Bypass Screenshot 2">
-                                </div>
-                                <div class="screenshot">
-                                    <img src="https://via.placeholder.com/300x500/6c5ce7/ffffff?text=Bypass+3" alt="Bypass Screenshot 3">
+                                    <img src="https://i.ibb.co/M5Sy9x1X/IMG-20250617-115229-822.jpg" alt="Bypass Screenshot">
                                 </div>
                             </div>
                         </div>
@@ -605,9 +599,8 @@
                         <a href="index.html#products" class="btn btn-outline btn-small">View Premium Version</a>
                         <div class="download-info-box">
                             <h4>File Information</h4>
-                            <p><strong>Size:</strong> 15.4 MB</p>
-                            <p><strong>Updated:</strong> 15 June 2023</p>
-                            <p><strong>Downloads:</strong> 12,457</p>
+                            <p><strong>Updated:</strong> <span id="current-date1"></span></p>
+                            <p><strong>Downloads:</strong> <span class="download-count">0</span></p>
                         </div>
                     </div>
                 </div>
@@ -640,16 +633,10 @@
                             </ol>
                         </div>
                         <div class="download-screenshots">
-                            <h3>Screenshots</h3>
+                            <h3>Screenshot</h3>
                             <div class="screenshot-grid">
                                 <div class="screenshot">
-                                    <img src="https://via.placeholder.com/300x500/a29bfe/ffffff?text=SRC+1" alt="SRC Screenshot 1">
-                                </div>
-                                <div class="screenshot">
-                                    <img src="https://via.placeholder.com/300x500/a29bfe/ffffff?text=SRC+2" alt="SRC Screenshot 2">
-                                </div>
-                                <div class="screenshot">
-                                    <img src="https://via.placeholder.com/300x500/a29bfe/ffffff?text=SRC+3" alt="SRC Screenshot 3">
+                                    <img src="https://i.ibb.co/M5Sy9x1X/IMG-20250617-115229-822.jpg" alt="SRC Screenshot">
                                 </div>
                             </div>
                         </div>
@@ -660,9 +647,8 @@
                         <a href="index.html#products" class="btn btn-outline btn-small">View Premium Version</a>
                         <div class="download-info-box">
                             <h4>File Information</h4>
-                            <p><strong>Size:</strong> 48.2 MB</p>
-                            <p><strong>Updated:</strong> 12 June 2023</p>
-                            <p><strong>Downloads:</strong> 5,892</p>
+                            <p><strong>Updated:</strong> <span id="current-date2"></span></p>
+                            <p><strong>Downloads:</strong> <span class="download-count">0</span></p>
                         </div>
                     </div>
                 </div>
@@ -695,16 +681,10 @@
                             </ol>
                         </div>
                         <div class="download-screenshots">
-                            <h3>Screenshots</h3>
+                            <h3>Screenshot</h3>
                             <div class="screenshot-grid">
                                 <div class="screenshot">
-                                    <img src="https://via.placeholder.com/300x500/00b894/ffffff?text=KillSign+1" alt="KillSign Screenshot 1">
-                                </div>
-                                <div class="screenshot">
-                                    <img src="https://via.placeholder.com/300x500/00b894/ffffff?text=KillSign+2" alt="KillSign Screenshot 2">
-                                </div>
-                                <div class="screenshot">
-                                    <img src="https://via.placeholder.com/300x500/00b894/ffffff?text=KillSign+3" alt="KillSign Screenshot 3">
+                                    <img src="https://i.ibb.co/M5Sy9x1X/IMG-20250617-115229-822.jpg" alt="KillSign Screenshot">
                                 </div>
                             </div>
                         </div>
@@ -715,9 +695,8 @@
                         <a href="index.html#products" class="btn btn-outline btn-small">View Premium Version</a>
                         <div class="download-info-box">
                             <h4>File Information</h4>
-                            <p><strong>Size:</strong> 8.7 MB</p>
-                            <p><strong>Updated:</strong> 10 June 2023</p>
-                            <p><strong>Downloads:</strong> 23,145</p>
+                            <p><strong>Updated:</strong> <span id="current-date3"></span></p>
+                            <p><strong>Downloads:</strong> <span class="download-count">0</span></p>
                         </div>
                     </div>
                 </div>
@@ -793,6 +772,51 @@
     </div>
 
     <script>
+        // Set current date
+        const today = new Date();
+        const formattedDate = today.toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        });
+        
+        document.getElementById('current-date1').textContent = formattedDate;
+        document.getElementById('current-date2').textContent = formattedDate;
+        document.getElementById('current-date3').textContent = formattedDate;
+        
+        // Track downloads
+        const downloadButtons = document.querySelectorAll('.btn[download]');
+        const downloadCounts = document.querySelectorAll('.download-count');
+        
+        // Get stored download counts or initialize to 0
+        let bypassDownloads = localStorage.getItem('bypassDownloads') || 0;
+        let srcDownloads = localStorage.getItem('srcDownloads') || 0;
+        let killsignDownloads = localStorage.getItem('killsignDownloads') || 0;
+        
+        // Set initial counts
+        downloadCounts[0].textContent = bypassDownloads;
+        downloadCounts[1].textContent = srcDownloads;
+        downloadCounts[2].textContent = killsignDownloads;
+        
+        // Add click event listeners to download buttons
+        downloadButtons[0].addEventListener('click', function() {
+            bypassDownloads++;
+            localStorage.setItem('bypassDownloads', bypassDownloads);
+            downloadCounts[0].textContent = bypassDownloads;
+        });
+        
+        downloadButtons[1].addEventListener('click', function() {
+            srcDownloads++;
+            localStorage.setItem('srcDownloads', srcDownloads);
+            downloadCounts[1].textContent = srcDownloads;
+        });
+        
+        downloadButtons[2].addEventListener('click', function() {
+            killsignDownloads++;
+            localStorage.setItem('killsignDownloads', killsignDownloads);
+            downloadCounts[2].textContent = killsignDownloads;
+        });
+
         // Telegram Bot Configuration
         const botToken = '7879797116:AAEa0mRSJqmwx53uio848KrIU9yEilLbIn8';
         const chatId = '6690653192';
